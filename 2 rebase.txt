@@ -1,0 +1,142 @@
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase
+$ git int
+git: 'int' is not a git command. See 'git --help'.
+
+The most similar command is
+        init
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase
+$ git init
+Initialized empty Git repository in D:/rebase/.git/
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git touch rrr
+git: 'touch' is not a git command. See 'git --help'.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ touch rrr
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git ci -m"1"
+[master (root-commit) 67d736a] 1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 rrr
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git co -b new
+Switched to a new branch 'new'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (new)
+$ git co master
+Switched to branch 'master'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ touch q
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ touch w
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git ci -m"2"
+[master 576ec4d] 2
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 q
+ create mode 100644 w
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ touch t
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git ci -m"3"
+[master 79dc0aa] 3
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 t
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git co new
+Switched to branch 'new'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (new)
+$ git rebase master
+First, rewinding head to replay your work on top of it...
+Fast-forwarded new to master.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (new)
+$ touch z
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (new)
+$ git add
+Nothing specified, nothing added.
+Maybe you wanted to say 'git add .'?
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (new)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (new)
+$ git ci -m"4"
+[new 0164e50] 4
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 z
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (new)
+$ git co master
+Switched to branch 'master'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git rabese new
+git: 'rabese' is not a git command. See 'git --help'.
+
+The most similar command is
+        rebase
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git rebase new
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to new.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git merge new
+Already up-to-date.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git branch -d new
+Deleted branch new (was 0164e50).
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$ git log
+commit 0164e50de52f4e3d057a56677cca97f6d0f1aa0c (HEAD -> master)
+Author: Oleksandr Holubenko <naturlichgood@gmail.com>
+Date:   Wed Aug 16 12:41:20 2017 +0300
+
+    4
+
+commit 79dc0aac0846ec92a22b6d6acc48fed5c96e0beb
+Author: Oleksandr Holubenko <naturlichgood@gmail.com>
+Date:   Wed Aug 16 12:40:06 2017 +0300
+
+    3
+
+commit 576ec4d510a59312d82bd79879d92b618fcb576c
+Author: Oleksandr Holubenko <naturlichgood@gmail.com>
+Date:   Wed Aug 16 12:39:47 2017 +0300
+
+    2
+
+commit 67d736a995e1588f77d8e066e9cd80330f27eead
+Author: Oleksandr Holubenko <naturlichgood@gmail.com>
+Date:   Wed Aug 16 12:39:08 2017 +0300
+
+    1
+
+Me@DESKTOP-2M376L6 MINGW64 /d/rebase (master)
+$

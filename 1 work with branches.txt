@@ -1,0 +1,171 @@
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch
+$ git init
+Initialized empty Git repository in D:/workbranch/.git/
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ git st
+On branch master
+
+Initial commit
+
+nothing to commit (create/copy files and use "git add" to track)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ touch aaa
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ git st
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   aaa
+
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ git ci -m"initialized master"
+[master (root-commit) 3b47e69] initialized master
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 aaa
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ git co -b "architecture"
+Switched to a new branch 'architecture'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ mkdir assets/ uploads/
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ touch index.html
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git ci -m"create 2 folders and 1 html file"
+On branch architecture
+Untracked files:
+        index.html
+
+nothing added to commit but untracked files present
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git ci -m"create 2 folders and 1 html file"
+[architecture 24b1b7e] create 2 folders and 1 html file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 index.html
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ touch assets/all.js assets/css.js
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git st
+On branch architecture
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        assets/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git ci -m"added two js-files"
+[architecture 1ec3def] added two js-files
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 assets/all.js
+ create mode 100644 assets/css.js
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git remote add origin https://github.com/AlexHolubenko/work-with-branches.git
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git push -u origin master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 221 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/AlexHolubenko/work-with-branches.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ touch .gitignore uploads/.keep
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ start .gitignore
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git st
+On branch architecture
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .gitignore
+        uploads/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git ci -m"create gitignore"
+[architecture 0192ce9] create gitignore
+ 2 files changed, 2 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 uploads/.keep
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (architecture)
+$ git co master
+Switched to branch 'master'
+Your branch is up-to-date with 'origin/master'.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ git merge architecture
+Updating 3b47e69..0192ce9
+Fast-forward
+ .gitignore    | 2 ++
+ assets/all.js | 0
+ assets/css.js | 0
+ index.html    | 0
+ uploads/.keep | 0
+ 5 files changed, 2 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 assets/all.js
+ create mode 100644 assets/css.js
+ create mode 100644 index.html
+ create mode 100644 uploads/.keep
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ git st
+On branch master
+Your branch is ahead of 'origin/master' by 3 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ git branch -d architecture
+Deleted branch architecture (was 0192ce9).
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$ git push
+Counting objects: 9, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (9/9), 898 bytes | 0 bytes/s, done.
+Total 9 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/AlexHolubenko/work-with-branches.git
+   3b47e69..0192ce9  master -> master
+
+Me@DESKTOP-2M376L6 MINGW64 /d/workbranch (master)
+$

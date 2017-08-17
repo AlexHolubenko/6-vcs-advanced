@@ -1,0 +1,141 @@
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages
+$ git init
+Initialized empty Git repository in D:/gh-pages/.git/
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (master)
+$ git co -b gh-pages
+Switched to a new branch 'gh-pages'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ touch index.html
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ start index.html
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git st
+On branch gh-pages
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        index.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git ci -m"create html file with img"
+[gh-pages (root-commit) 6944edc] create html file with img
+ 1 file changed, 11 insertions(+)
+ create mode 100644 index.html
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git remote add origin https://github.com/AlexHolubenko/gh-pages.git
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git push -u origin gh-pages
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 415 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/AlexHolubenko/gh-pages.git
+ * [new branch]      gh-pages -> gh-pages
+Branch gh-pages set up to track remote branch gh-pages from origin.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git st
+On branch gh-pages
+Your branch is up-to-date with 'origin/gh-pages'.
+nothing to commit, working tree clean
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ start index.html
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ start sublime
+The system cannot find the file sublime.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ start sublime_text
+The system cannot find the file sublime_text.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ start index.html
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git st
+On branch gh-pages
+Your branch is up-to-date with 'origin/gh-pages'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git ci- m"modified index.html"
+git: 'ci-' is not a git command. See 'git --help'.
+
+The most similar command is
+        ci
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git ci -m"modified index.html"
+[gh-pages 214dc16] modified index.html
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git push
+To https://github.com/AlexHolubenko/gh-pages.git
+ ! [rejected]        gh-pages -> gh-pages (fetch first)
+error: failed to push some refs to 'https://github.com/AlexHolubenko/gh-pages.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git pull
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/AlexHolubenko/gh-pages
+   6944edc..5fdcc46  gh-pages   -> origin/gh-pages
+Merge made by the 'recursive' strategy.
+ README.md | 3 +++
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git push
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (5/5), 666 bytes | 0 bytes/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/AlexHolubenko/gh-pages.git
+   5fdcc46..415c6a3  gh-pages -> gh-pages
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$ git st
+On branch gh-pages
+Your branch is up-to-date with 'origin/gh-pages'.
+nothing to commit, working tree clean
+
+Me@DESKTOP-2M376L6 MINGW64 /d/gh-pages (gh-pages)
+$

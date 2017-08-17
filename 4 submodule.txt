@@ -1,0 +1,74 @@
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule
+$ git init
+Initialized empty Git repository in Dsubmodule.git
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ touch aaa
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ git ci -mcreate new empty file 
+[master (root-commit) fcb7591] create new empty file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 aaa
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ git submodule add httpsgithub.comAlexHolubenkowork-with-branches
+Cloning into 'Dsubmodulework-with-branches'...
+remote Counting objects 12, done.
+remote Compressing objects 100% (77), done.
+remote Total 12 (delta 1), reused 12 (delta 1), pack-reused 0
+Unpacking objects 100% (1212), done.
+warning LF will be replaced by CRLF in .gitmodules.
+The file will have its original line endings in your working directory.
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ git st
+On branch master
+Changes to be committed
+  (use git reset HEAD file... to unstage)
+
+        new file   .gitmodules
+        new file   work-with-branches
+
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ git st
+On branch master
+Changes to be committed
+  (use git reset HEAD file... to unstage)
+
+        new file   .gitmodules
+        new file   work-with-branches
+
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ git ci -mcreate submodule
+[master 0005b66] create submodule
+ 2 files changed, 4 insertions(+)
+ create mode 100644 .gitmodules
+ create mode 160000 work-with-branches
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ git remote add origin httpsgithub.comAlexHolubenkosubmodule.git
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$ git push -u origin master
+Counting objects 6, done.
+Delta compression using up to 4 threads.
+Compressing objects 100% (44), done.
+Writing objects 100% (66), 607 bytes  0 bytess, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To httpsgithub.comAlexHolubenkosubmodule.git
+  [new branch]      master - master
+Branch master set up to track remote branch master from origin.
+
+Me@DESKTOP-2M376L6 MINGW64 dsubmodule (master)
+$
+

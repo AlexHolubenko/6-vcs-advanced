@@ -1,0 +1,145 @@
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts
+$ git init
+Initialized empty Git repository in D:/Conflicts/.git/
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ touch file.txt
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git ci -m"added empty file"
+[master (root-commit) 72063d6] added empty file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file.txt
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git co -b new_branch
+Switched to a new branch 'new_branch'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch)
+$ git co master
+Switched to branch 'master'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ start file.txt
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git ci -m"change in file.txt"
+[master 70cee3f] change in file.txt
+ 1 file changed, 1 insertion(+)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git co new_branch
+Switched to branch 'new_branch'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch)
+$ git st
+On branch new_branch
+nothing to commit, working tree clean
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch)
+$ start file.txt
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch)
+$ git ci -m"change first row in file"
+[new_branch d4916a8] change first row in file
+ 1 file changed, 1 insertion(+)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch)
+$ git co master
+Switched to branch 'master'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git merge new_branch
+Auto-merging file.txt
+CONFLICT (content): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master|MERGING)
+$ git merge --abort
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git st
+On branch master
+nothing to commit, working tree clean
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git co new_branch
+Switched to branch 'new_branch'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch)
+$ git cherry-pick master
+error: could not apply 70cee3f... change in file.txt
+hint: after resolving the conflicts, mark the corrected paths
+hint: with 'git add <paths>' or 'git rm <paths>'
+hint: and commit the result with 'git commit'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch|CHERRY-PICKING)
+$ start file.txt
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch|CHERRY-PICKING)
+$ git st
+On branch new_branch
+You are currently cherry-picking commit 70cee3f.
+  (fix conflicts and run "git cherry-pick --continue")
+  (use "git cherry-pick --abort" to cancel the cherry-pick operation)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch|CHERRY-PICKING)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch|CHERRY-PICKING)
+$ git ci -m"fixed conflict"
+[new_branch 240837d] fixed conflict
+ Date: Thu Aug 17 13:26:11 2017 +0300
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (new_branch)
+$ git co master
+Switched to branch 'master'
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git merge new_branch
+Auto-merging file.txt
+CONFLICT (content): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master|MERGING)
+$ git merge --abort
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ start file.txt
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git add .
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git ci -m"fixed conflict 2"
+[master 06a0ab5] fixed conflict 2
+ 1 file changed, 1 deletion(-)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git merge new_branch
+Merge made by the 'recursive' strategy.
+ file.txt | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+Me@DESKTOP-2M376L6 MINGW64 /d/Conflicts (master)
+$ git st
+On branch master
+nothing to commit, working tree clean
